@@ -22,7 +22,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .title {
     font-size: 50px;
   }
@@ -40,7 +40,7 @@
   grid-template-rows: repeat(5, 1fr);
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
   .container {
     gap: 10px;
     max-width: 440px;
@@ -65,7 +65,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .button {
     font-size: 30px;
   }
