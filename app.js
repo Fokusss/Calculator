@@ -22,6 +22,8 @@ const buttonPlus = document.getElementById('Plus');
 const buttonMinus = document.getElementById('Minus');
 const buttonPercent = document.getElementById('Percent');
 const buttonComma = document.getElementById('Comma');
+const buttonMode = document.querySelector('.mode');
+const author = document.querySelector('.footer__author');
 
 /*Переменные */
 let firstNumber = 0;
@@ -160,39 +162,27 @@ function workAddComma() {
   }
 }
 
-function workDivision() {
-  saveDivision();
+function workOperation(n) {
+  if (v !== ''){
+    saveSecond();
+    equally();
+  }
+  v = n;
   saveFirst();
   clear();
 }
 
-function workMultiply() {
-  saveMultiply();
-  saveFirst();
-  clear();
-}
-
-function workPlus() {
-  savePlus();
-  saveFirst();
-  clear();
-}
-
-function workMinus() {
-  saveMinus();
-  saveFirst();
-  clear();
-}
-
-function workPercent() {
-  savePrecent();
-  saveFirst();
-  clear();
-}
 
 function workEqually() {
   saveSecond();
   equally();
+}
+
+function workMode() {
+  const page = document.querySelector('.page')
+  page.classList.toggle('page_mode_light');
+  buttonMode.classList.toggle('mode_light');
+  author.classList.toggle('footer__author_mode_light');
 }
 
 
@@ -211,13 +201,14 @@ buttonSeven.addEventListener('click', () => workAddNumber(7));
 buttonEight.addEventListener('click', () => workAddNumber(8));
 buttonNine.addEventListener('click', () => workAddNumber(9));
 buttonZero.addEventListener('click', () => workAddNumber(0));
-buttonDivision.addEventListener('click', workDivision);
-buttonMultiply.addEventListener('click', workMultiply);
+buttonDivision.addEventListener('click', () => workOperation('/'));
+buttonMultiply.addEventListener('click', () => workOperation('*'));
 buttonEqually.addEventListener('click', workEqually);
-buttonPlus.addEventListener('click', workPlus);
-buttonMinus.addEventListener('click', workMinus);
-buttonPercent.addEventListener('click', workPercent);
+buttonPlus.addEventListener('click', () => workOperation('+'));
+buttonMinus.addEventListener('click', () => workOperation('-'));
+buttonPercent.addEventListener('click', () => workOperation('%'));
 buttonComma.addEventListener('click', workAddComma);
+buttonMode.addEventListener('click', workMode);
 
 
 
