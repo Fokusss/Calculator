@@ -1,5 +1,5 @@
 let title = document.querySelector(".title");
-const buttons = document.querySelector('button');
+const buttons = document.querySelectorAll('.button');
 
 
 /*Кнопки  */
@@ -183,6 +183,11 @@ function workMode() {
   page.classList.toggle('page_mode_light');
   buttonMode.classList.toggle('mode_light');
   author.classList.toggle('footer__author_mode_light');
+  title.classList.toggle('title_mode_light');
+  console.log(buttons)
+  buttons.forEach((element) => {
+    element.classList.toggle('button_mode_light');
+  })
 }
 
 
