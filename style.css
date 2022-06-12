@@ -11,7 +11,7 @@
 }
 
 .title {
-  width: 400px;
+  max-width: 400px;
   color: white;
   font-size: 86px;
   text-align: right;
@@ -31,6 +31,14 @@
   padding: 0;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
+}
+
+@media screen and (max-width: 500px){
+  .container {
+    gap: 10px;
+    max-width: 440px;
+    max-height: 550px;
+  }
 }
 
 .button {
