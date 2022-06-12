@@ -20,6 +20,8 @@ const buttonEqually = document.getElementById('Equally');
 const buttonMultiply = document.getElementById('Multiply');
 const buttonPlus = document.getElementById('Plus');
 const buttonMinus = document.getElementById('Minus');
+const buttonPercent = document.getElementById('Percent');
+const buttonComma = document.getElementById('Comma');
 
 /*Переменные */
 let firstNumber = 0;
@@ -79,6 +81,10 @@ function saveMinus() {
   v = '-';
 }
 
+function savePrecent(){
+  v = '%';
+}
+
 function saveFirst(){
   firstNumber = Number(title.textContent);
 }
@@ -103,6 +109,10 @@ function minus(a, b){
   return (a - b);
 }
 
+function percent(a, b){
+  return (b * (a / 100))
+}
+
 function equally() {
   if (v === '/'){
     title.textContent = division(firstNumber, secondNumber);
@@ -112,6 +122,8 @@ function equally() {
     title.textContent = plus(firstNumber, secondNumber);
   } else if (v === '-'){
     title.textContent = minus(firstNumber,secondNumber);
+  } else if (v === '%') {
+    title.textContent = percent(firstNumber, secondNumber);
   }
 }
 
@@ -141,6 +153,13 @@ function workAddNumber(n){
   }
 }
 
+function workAddComma() {
+  const str = title.textContent;
+  if (-1 === str.indexOf('.')){
+    title.textContent += '.';
+  }
+}
+
 function workDivision() {
   saveDivision();
   saveFirst();
@@ -161,6 +180,12 @@ function workPlus() {
 
 function workMinus() {
   saveMinus();
+  saveFirst();
+  clear();
+}
+
+function workPercent() {
+  savePrecent();
   saveFirst();
   clear();
 }
@@ -191,6 +216,8 @@ buttonMultiply.addEventListener('click', workMultiply);
 buttonEqually.addEventListener('click', workEqually);
 buttonPlus.addEventListener('click', workPlus);
 buttonMinus.addEventListener('click', workMinus);
+buttonPercent.addEventListener('click', workPercent);
+buttonComma.addEventListener('click', workAddComma);
 
 
 
